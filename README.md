@@ -1,6 +1,6 @@
 # eight-track-bypass
 
-Eight track bypass is a node module that makes use of free proxies (from http://gimmeproxy.com/) to load playlists and tracks, and as such retrieve the m4v file.
+Eight track bypass is a node module that makes use of free proxies (from http://gimmeproxy.com/) to load playlists and tracks, and as such retrieve all information from all over the world.
 
 Usage:
 ```
