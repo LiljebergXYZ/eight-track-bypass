@@ -1,6 +1,6 @@
 {
   "name": "eight-track-bypass",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "",
   "main": "index.js",
   "scripts": {
@@ -8,6 +8,11 @@
   },
   "author": "Daniel Liljeberg",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/LiljebergXYZ/eight-track-bypass.git"
+  },
+  "homepage": "https://github.com/LiljebergXYZ/eight-track-bypass",
   "dependencies": {
     "node-libcurl": "^1.0.0"
   }
