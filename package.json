@@ -1,0 +1,14 @@
+{
+  "name": "eight-track-bypass",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Daniel Liljeberg",
+  "license": "MIT",
+  "dependencies": {
+    "node-libcurl": "^1.0.0"
+  }
+}
