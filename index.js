@@ -3,7 +3,6 @@ var http = require('http')
 	, request = require('request')
 	, fs = require('fs')
 	, path = require('path')
-	, prompt = require('prompt-sync')()
 	, Curl = require( 'node-libcurl' ).Curl;
 
 // Setup basic curl
