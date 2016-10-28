@@ -7,12 +7,12 @@ Usage:
 var eightTrack = require('eight-track-bypass');
 eightTrack.setPlaylist('lauraws', 'songs-to-enjoy-fall-to');
 eightTrack.getFirstTrack(function(err, data) {
-  if(err) {
-    console.error(err);
-    return;
-  }
+	if(err) {
+	  console.error(err);
+	  return;
+	}
 
-  console.log(data);
+	console.log(data);
 
 	eightTrack.getNextTrack(function(err, data){
 		if(err) { console.error(err); }
