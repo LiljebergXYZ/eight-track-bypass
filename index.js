@@ -36,7 +36,7 @@ curl.on( 'end', function( statusCode, body, headers ) {
  */
 function setPlaylist(user, playlist) {
 	username = user;
-  	playlistName = playlist;
+	playlistName = playlist;
 }
 
 /**
@@ -63,7 +63,7 @@ function getNextTrack(callback) {
 		request('http://gimmeproxy.com/api/getProxy?country=US', proxyCallback);
 	}else{
 		curl.setOpt('URL', 'http://8tracks.com/sets/' + playToken + '/next?mix_id=' + playlistId + '&format=jsonh');
-    	curl.perform();
+		curl.perform();
 	}
 }
 
@@ -77,20 +77,20 @@ function proxyCallback (error, response, body) {
 }
 
 function playlistCallback(error, response, body) {
-    playlistId = body.match(/mixes\/([0-9]+)\//)[1]
+	playlistId = body.match(/mixes\/([0-9]+)\//)[1]
 
-    request('http://8tracks.com/sets/new?format=jsonh', playTokenCallback);
+	request('http://8tracks.com/sets/new?format=jsonh', playTokenCallback);
 }
 
 function playTokenCallback(error, response, body) {
-    playToken = JSON.parse(body)["play_token"]
+	playToken = JSON.parse(body)["play_token"]
 
-    curl.setOpt('URL', 'http://8tracks.com/sets/' + playToken + '/play?mix_id=' + playlistId + '&format=jsonh');
-    curl.perform();
+	curl.setOpt('URL', 'http://8tracks.com/sets/' + playToken + '/play?mix_id=' + playlistId + '&format=jsonh');
+	curl.perform();
 }
 
 module.exports = {
-  	setPlaylist: setPlaylist,
-  	getFirstTrack: getFirstTrack,
-  	getNextTrack: getNextTrack,
+	setPlaylist: setPlaylist,
+	getFirstTrack: getFirstTrack,
+	getNextTrack: getNextTrack,
 };
