@@ -29,18 +29,41 @@ curl.on( 'end', function( statusCode, body, headers ) {
 	mainCallback(null, data);
 });
 
+/**
+ * Sets the current user and playlist
+ * @param {String} user
+ * @param {String} playlist
+ */
 function setPlaylist(user, playlist) {
 	username = user;
   	playlistName = playlist;
 }
 
-function getTrack(callback) {
+/**
+ * Initialize playlist and get the first track
+ * @param {Callback} callback
+ */
+function getFirstTrack(callback) {
 	mainCallback = callback;
 	if(!proxy) {
 		request('http://gimmeproxy.com/api/getProxy?country=US', proxyCallback);
 	}else{
 		var playlistUrl = 'http://8tracks.com/' + username + '/' + playlistName
 		request(playlistUrl, playlistCallback);
+	}
+}
+
+/**
+ * Returns the next song in the playlist, based on current play token
+ * @param {Callback} callback
+ */
+function getNextTrack(callback) {
+	mainCallback = callback;
+	if(!proxy) {
+		request('http://gimmeproxy.com/api/getProxy?country=US', proxyCallback);
+	}else{
+		curl.setOpt('URL', 'http://8tracks.com/sets/' + playToken + '/next?mix_id=' + playlistId + '&format=jsonh');
+    	curl.perform();
 	}
 }
 
@@ -68,5 +91,6 @@ function playTokenCallback(error, response, body) {
 
 module.exports = {
   	setPlaylist: setPlaylist,
-  	getTrack: getTrack,
+  	getFirstTrack: getFirstTrack,
+  	getNextTrack: getNextTrack,
 };
