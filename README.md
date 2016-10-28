@@ -6,12 +6,18 @@ Usage:
 ```Javascript
 var eightTrack = require('eight-track-bypass');
 eightTrack.setPlaylist('lauraws', 'songs-to-enjoy-fall-to');
-eightTrack.getTrack(function(err, data) {
+eightTrack.getFirstTrack(function(err, data) {
   if(err) {
     console.error(err);
     return;
   }
 
   console.log(data);
+
+	eightTrack.getNextTrack(function(err, data){
+		if(err) { console.error(err); }
+
+		console.log(data);
+	}
 });
 ```
